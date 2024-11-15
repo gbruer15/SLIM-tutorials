@@ -36,7 +36,7 @@ params_transition = JutulOptions(;
     # permeability=FieldOptions(0.1Darcy),
     permeability=FieldOptions(;
         suboptions=FieldFileOptions(;
-            file="compass_small/perm_poro.jld2",
+            file="/opt/SLIM-Storage/compass_small/perm_poro.jld2",
             key="K",
             scale=mD_to_meters2,
             resize=true,
@@ -77,13 +77,13 @@ observer_options = SeismicCO2ObserverOptions(;
             type=:squared_slowness,
             field=FieldOptions(;
                 suboptions=FieldFileOptions(;
-                    file="compass_small/BGCompass_tti_625m.jld2", key="m", scale=1e-6, resize=true
+                    file="/opt/SLIM-Storage/compass_small/BGCompass_tti_625m.jld2", key="m", scale=1e-6, resize=true
                 ),
             ),
         ),
         density=FieldOptions(;
             suboptions=FieldFileOptions(;
-                file="compass_small/BGCompass_tti_625m.jld2", key="rho", scale=1e3, resize=true
+                file="/opt/SLIM-Storage/compass_small/BGCompass_tti_625m.jld2", key="rho", scale=1e3, resize=true
             ),
         ),
         background_velocity=BackgroundBlurOptions(; cells=10.0),
@@ -124,7 +124,7 @@ params = JutulJUDIFilterOptions(;
             Saturation=GaussianPriorOptions(; mean=0, std=0),
             Permeability=FieldOptions(;
                 suboptions=FieldFileOptions(;
-                    file="compass_small/perm_poro.jld2",
+                    file="/opt/SLIM-Storage/compass_small/perm_poro.jld2",
                     key="Ks",
                     scale=mD_to_meters2,
                     resize=true,

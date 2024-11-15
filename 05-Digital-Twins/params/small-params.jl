@@ -84,8 +84,8 @@ params = JutulJUDIFilterOptions(;
             Saturation=GaussianPriorOptions(; mean=0, std=0),
             Permeability=FieldOptions(;
                 suboptions=FieldFileOptions(;
-                    file="compass/broad&narrow_perm_models_new.jld2",
-                    key="BroadK",
+                    file="/opt/SLIM-Storage/compass_small/perm_poro.jld2",
+                    key="Ks",
                     scale=mD_to_meters2,
                     resize=true,
                 ),
