@@ -6,11 +6,7 @@ using TerminalLoggers: TerminalLogger
 using Logging: global_logger
 isinteractive() && global_logger(TerminalLogger())
 
-if isinteractive()
-    using GLMakie: GLMakie
-else
-    using CairoMakie: CairoMakie
-end
+using CairoMakie: CairoMakie
 using Makie: with_theme, theme_latexfonts, update_theme!
 
 using DrWatson: srcdir, datadir, plotsdir, produce_or_load, wsave, scriptsdir, projectdir
@@ -32,11 +28,7 @@ observation_times = data_gt["observation_times"]
 
 with_theme(theme_latexfonts()) do
     update_theme!(; fontsize=24)
-    if isinteractive()
-        GLMakie.activate!()
-    else
-        CairoMakie.activate!()
-    end
+    CairoMakie.activate!()
 
     save_dir_root = plotsdir("ground_truth", filestem_gt, "static")
     if isa(params.ground_truth.observation.observers[1].second, SeismicCO2ObserverOptions)

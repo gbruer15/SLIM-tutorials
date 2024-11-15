@@ -90,14 +90,14 @@ observer_options = SeismicCO2ObserverOptions(;
         background_density=BackgroundBlurOptions(; cells=10.0),
         mesh=MeshOptions(; n=(75, 75), d=(55, 25)),
         source_receiver_geometry=SourceReceiverGeometryOptions(;
-            nsrc=2, nrec=50, setup_type=:surface
+            nsrc=4, nrec=50, setup_type=:surface
         ),
         seed=0xb874e67219a0aba4,
         depth_scaling_exponent=1,
         snr=20.0,
     ),
     rock_physics=RockPhysicsModelOptions(; porosity=FieldOptions(0.25)),
-    save_intermediate=true,
+    # save_intermediate=true,
 )
 
 ground_truth = ModelOptions(;
@@ -116,7 +116,7 @@ ground_truth = ModelOptions(;
 params = JutulJUDIFilterOptions(;
     ground_truth,
     ensemble=EnsembleOptions(;
-        size=2,
+        size=4,
         seed=9347215,
         mesh=params_transition.mesh,
         permeability_v_over_h=0.36,
